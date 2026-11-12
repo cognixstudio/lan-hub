@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LAN Viewer & LAN Host – Download</title>
+<meta name="theme-color" content="#07050b">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- =====================================================================
+     EDIT YOUR DOWNLOAD LINKS HERE (replace the URLs, keep the names)
+     ===================================================================== -->
+<script>
+const LINKS = {
+  viewer: {
+    version: "1.0.0",
+    windows:  "https://example.com/downloads/lan-viewer-win-x64.exe",
+    linuxDeb: "https://example.com/downloads/lan-viewer-linux-amd64.deb",
+    appImage: "https://example.com/downloads/lan-viewer-linux-x86_64.AppImage",
+    android:  "https://example.com/downloads/lan-viewer-android.apk"      // phone + Android TV
+  },
+  host: {
+    version: "1.0.0",
+    windows:  "https://example.com/downloads/lan-host-win-x64.exe",
+    linuxDeb: "https://example.com/downloads/lan-host-linux-amd64.deb",
+    appImage: "https://example.com/downloads/lan-host-linux-x86_64.AppImage",
+    android:  "https://example.com/downloads/lan-host-android.apk"
+  },
+  installGuide: "https://github.com/OWNER/REPO/blob/main/INSTALL.md",
+  github:       "https://github.com/OWNER/REPO"
+};
+</script>
+<!-- ===================================================================== -->
+
+<style>
+:root{--bg:#07050b;--card:#100b1a;--line:#2a1d44;--gold:#f5c451;--gold2:#d4a017;--pu:#a855f7;--pu2:#7c3aed;--tx:#f3ecff;--mut:#a79cc0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 1rem/1.6 Outfit,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.38;z-index:-1;animation:drift 18s ease-in-out infinite alternate}
+.o1{width:38rem;height:38rem;background:var(--pu2);top:-12rem;left:-10rem}
+.o2{width:30rem;height:30rem;background:var(--gold2);opacity:.22;bottom:-10rem;right:-8rem;animation-delay:-6s}
+.o3{width:22rem;height:22rem;background:var(--pu);top:40%;left:55%;opacity:.2;animation-delay:-11s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+.wrap{max-width:70rem;margin:auto;padding:0 1.4rem}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:#07050bb3;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:1.2rem;height:4rem}
+.logo{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}.logo b{color:var(--gold)}
+nav .sp{flex:1}nav a.l{color:var(--mut);font-weight:500;transition:.2s}nav a.l:hover{color:var(--gold)}
+.hero{text-align:center;padding:5.5rem 0 3rem}
+.pill{display:inline-block;padding:.35rem 1rem;border:1px solid var(--line);border-radius:2rem;color:var(--gold);font-size:.85rem;background:#ffffff08;animation:fadeup .8s both}
+h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.05;margin:1.2rem 0 1rem;font-weight:800;letter-spacing:-.04em;animation:fadeup .8s .1s both}
+.shine{background:linear-gradient(100deg,var(--gold) 20%,#fff 40%,var(--pu) 60%,var(--gold) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.hero p{max-width:36rem;margin:0 auto 2rem;color:var(--mut);font-size:1.15rem;animation:fadeup .8s .2s both}
+.cta{display:inline-flex;gap:.6rem;animation:fadeup .8s .3s both;flex-wrap:wrap;justify-content:center}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:2rem;font-weight:600;border:1px solid var(--line);transition:.25s;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1000;border:0;box-shadow:0 0 0 0 #f5c45166;animation:pulse 2.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 16px #f5c45100}}
+.btn:hover{transform:translateY(-3px);border-color:var(--pu)}
+.sec{padding:3rem 0}.sec h2{font-size:2rem;margin:0 0 .4rem;letter-spacing:-.02em}.sec>.wrap>p{color:var(--mut);margin:0 0 2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.4rem}
+.card{position:relative;background:linear-gradient(160deg,#150e24,var(--card));border:1px solid var(--line);border-radius:1.6rem;padding:1.8rem;overflow:hidden;transition:.3s}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,var(--gold),transparent 40%,var(--pu));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.35;transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px #7c3aed33}.card:hover::before{opacity:1}
+.card .ic{width:3.4rem;height:3.4rem;border-radius:1rem;display:grid;place-items:center;font-size:1.7rem;background:linear-gradient(135deg,var(--pu2),var(--pu));margin-bottom:1rem;animation:float 4s ease-in-out infinite}
+.card.h .ic{background:linear-gradient(135deg,var(--gold2),var(--gold))}
+@keyframes float{50%{transform:translateY(-6px) rotate(-4deg)}}
+.card h3{margin:0;font-size:1.5rem}.card .v{color:var(--gold);font-size:.85rem;font-weight:600}.card p{color:var(--mut);margin:.5rem 0 1.2rem}
+.dl{display:flex;flex-direction:column;gap:.55rem}
+.dl a{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;border-radius:1rem;background:#ffffff08;border:1px solid var(--line);transition:.25s;position:relative}
+.dl a:hover{background:#a855f722;border-color:var(--pu);transform:translateX(5px)}
+.dl a span.e{font-size:1.3rem}.dl a small{margin-left:auto;color:var(--mut)}
+.dl a.rec{border-color:var(--gold);background:#f5c45112}
+.dl a.rec::after{content:"Recommended";position:absolute;right:.8rem;top:-.55rem;background:var(--gold);color:#1a1000;font-size:.65rem;font-weight:700;padding:.1rem .55rem;border-radius:1rem}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.4rem}
+.shot{aspect-ratio:16/10;border-radius:1.2rem;border:1px dashed var(--line);display:grid;place-items:center;color:var(--mut);background:#ffffff05;overflow:hidden;text-align:center;transition:.3s}
+.shot:hover{border-color:var(--gold)}.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}
+.step{padding:1.3rem;border-radius:1.2rem;border:1px solid var(--line);background:#ffffff05}
+.step b{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--gold);color:#1a1000;margin-bottom:.6rem}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding:2.5rem 0;text-align:center;color:var(--mut)}
+.by{display:inline-flex;align-items:center;gap:.9rem;padding:.7rem 1.3rem .7rem .7rem;border:1px solid var(--line);border-radius:3rem;background:#ffffff06;transition:.3s}
+.by:hover{border-color:var(--gold);box-shadow:0 0 30px #f5c45125}
+.by img{width:3rem;height:3rem;border-radius:50%;object-fit:cover;background:#000;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.by span{text-align:left;line-height:1.3}.by b{color:var(--gold);display:block}
+.rv{opacity:0;transform:translateY(30px);transition:.8s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i>
+
+<nav><div class="wrap"><a class="logo" href="#top">LAN <b>Hub</b></a><span class="sp"></span>
+<a class="l" href="#downloads">Downloads</a><a class="l" href="#screens">Screenshots</a><a class="l" href="#how">How it works</a><a class="l" id="gh" href="#">GitHub</a></div></nav>
+
+<header class="hero wrap" id="top">
+  <span class="pill">✨ Free · Private · No cloud</span>
+  <h1>Your files.<br><span class="shine">Every screen.</span></h1>
+  <p>Host a folder on your computer and watch, listen and read it on your phone, TV or PC. All over your own network.</p>
+  <div class="cta"><a class="btn gold" href="#downloads">⬇ Download now</a><a class="btn" id="ig" href="#">📖 Install guide</a></div>
+</header>
+
+<section class="sec" id="downloads"><div class="wrap">
+  <h2 class="rv">Downloads</h2><p class="rv">Grab the Viewer for your devices and the Host for the computer that has your files.</p>
+  <div class="grid">
+    <div class="card rv" id="cv"><div class="ic">📺</div><h3>LAN Viewer</h3><span class="v"></span><p>Browse, search and play on phone, Android TV, Windows and Linux.</p><div class="dl"></div></div>
+    <div class="card h rv" id="ch"><div class="ic">💻</div><h3>LAN Host</h3><span class="v"></span><p>Share any folder with a 6-digit code, link or QR. Includes a live traffic monitor.</p><div class="dl"></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <h2 class="rv">How it works</h2><p class="rv">Four steps, about a minute.</p>
+  <div class="steps">
+    <div class="step rv"><b>1</b>Install <strong>LAN Host</strong> on your computer</div>
+    <div class="step rv"><b>2</b>Pick a folder and press <strong>Start hosting</strong></div>
+    <div class="step rv"><b>3</b>Open <strong>LAN Viewer</strong> and enter the 6-digit code</div>
+    <div class="step rv"><b>4</b>Browse and play. Phone, TV or PC</div>
+  </div>
+</div></section>
+
+<section class="sec" id="screens"><div class="wrap">
+  <h2 class="rv">Screenshots</h2><p class="rv">Drop your images into the <code>photo/</code> folder with these names.</p>
+  <div class="shots">
+    <div class="shot rv"><img src="photo/viewer.png" alt="LAN Viewer screenshot" onerror="this.replaceWith('photo/viewer.png')"></div>
+    <div class="shot rv"><img src="photo/host.png" alt="LAN Host screenshot" onerror="this.replaceWith('photo/host.png')"></div>
+    <div class="shot rv"><img src="photo/tv.png" alt="TV mode screenshot" onerror="this.replaceWith('photo/tv.png')"></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <a class="by" href="#top"><img src="photo/cognix.png" alt="Cognix Studio logo"><span>Created by<b>Cognix Studio – ABHI RAJ</b></span></a>
+  <p style="margin:1.2rem 0 0;font-size:.85rem">© <script>document.write(new Date().getFullYear())</script> Cognix Studio. All rights reserved.</p>
+</div></footer>
+
+<script>
+const rows=[["windows","🪟","Windows","Installer .exe"],["android","📱","Android phone & TV","APK"],["linuxDeb","🐧","Linux (.deb)","Ubuntu / Debian"],["appImage","🐧","Linux (.AppImage)","Any distro"]];
+const ua=navigator.userAgent,os=/Android/i.test(ua)?"android":/Windows/i.test(ua)?"windows":/Linux/i.test(ua)?"linuxDeb":"";
+function fill(id,d){const c=document.querySelector(id);c.querySelector(".v").textContent="Version "+d.version;
+ c.querySelector(".dl").innerHTML=rows.map(([k,e,n,s])=>`<a href="${d[k]}" download class="${k===os?"rec":""}"><span class="e">${e}</span><b>${n}</b><small>${s}</small></a>`).join("")}
+fill("#cv",LINKS.viewer);fill("#ch",LINKS.host);
+document.getElementById("ig").href=LINKS.installGuide;document.getElementById("gh").href=LINKS.github;
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.15});
+document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%3)*.12+"s";io.observe(el)});
+</script>
+</body></html>
