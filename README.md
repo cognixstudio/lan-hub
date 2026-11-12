@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="build/icon.png" width="110" alt="LAN Viewer logo" />
+<img src="assets/banner.svg" alt="LAN Viewer: stream files from your computer to phone and TV" width="100%" />
 
-# LAN Viewer
+<br/>
 
 **Watch your videos, music, photos and documents on any screen at home, straight from the computer they're stored on.**
 
@@ -59,6 +59,37 @@ Get the latest version from the **[Releases page](https://github.com/OWNER/REPO/
 </details>
 
 ## How to use it
+
+<div align="center">
+<img src="assets/flow.svg" alt="Share a folder, get a code, enter the code, browse and play" width="100%" />
+</div>
+
+Prefer the full picture? This is what happens behind the scenes, including what to check if something goes wrong:
+
+```mermaid
+flowchart TD
+    A([🚀 Start]) --> B[💻 Open LAN Host and choose a folder]
+    B --> C[▶️ Press Start hosting]
+    C --> D[🔢 Host shows a 6-digit code, a link and a QR]
+    D --> E[📱 Open LAN Viewer on your phone, TV or PC]
+    E --> F{Same Wi-Fi<br/>or network?}
+    F -- No --> G[📶 Join the same network] --> E
+    F -- Yes --> H{How do you<br/>want to connect?}
+    H -- Code --> I[Enter the 6-digit code]
+    H -- IP and port --> J[Enter e.g. 192.168.1.20 and 8000]
+    I --> K{Connected?}
+    J --> K
+    K -- No --> L[🛡️ Allow the app through the firewall<br/>and check the host is running] --> H
+    K -- Yes --> M[📂 Browse folders, search and filter]
+    M --> N([🎬 Tap a file to play or preview])
+
+    classDef start fill:#1d3a73,stroke:#8ab4ff,color:#fff
+    classDef ok fill:#14532d,stroke:#3ddc84,color:#fff
+    classDef warn fill:#5a3b00,stroke:#ffb74d,color:#fff
+    class A,N start
+    class M ok
+    class G,L warn
+```
 
 ### Step 1: Share a folder from your computer
 
